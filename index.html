@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="https://kit.fontawesome.com/d71c03628e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="text-lg z-10 flex fixed w-full justify-between items-center px-3 bg-secondary min-h-16 max-h-20 text-tertiary">
+        <div class="flex-1">
+            <a href="#main" class="flex gap-2 text-xl items-center">
+                <img class="max-w-14 max-h-14" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=996&t=st=1717706345~exp=1717706945~hmac=b648ce113e18749a6791beadc908365afb389d129a76b920c0c47474a1289cc5" alt="logo">
+                <span>AcademiaX</span>
+            </a>
+        </div>
+        <ul class="hidden md:flex gap-5 justify-center items-center flex-1">
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="hidden flex-1 md:flex justify-end">
+            <button
+                class="border-solid border-2 border-quaternary px-4 py-1 rounded-md hover:text-secondary hover:bg-tertiary">
+                Account
+            </button>
+        </div>
+
+        <div class="md:hidden" onclick="showDiv()">
+            <i class="fa-solid fa-lg fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- hidden nav for phone -->
+    <div id="menu" class="min-h-screen z-10 w-full fixed hidden md:hidden inset-0 flex-col justify-between text-lg bg-white">
+        <div class="flex justify-between items-center px-3 bg-secondary min-h-16 max-h-20 text-tertiary">
+            <div>
+                <a href="#main" class="flex gap-2 text-xl items-center">
+                    <img class="max-w-14 max-h-14" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=996&t=st=1717706345~exp=1717706945~hmac=b648ce113e18749a6791beadc908365afb389d129a76b920c0c47474a1289cc5" alt="logo">
+                    <span>AcademiaX</span>
+                </a>
+            </div>
+            <div class="md:hidden" onclick="showDiv()">
+                <i class="fa-solid fa-x fa-lg"></i>
+            </div>
+        </div>
+        <ul class="flex-col px-3 py-1 justify-center items-center [&>li]:py-3 [&>li]:my-1">
+            <li class="hover:bg-quaternary px-2"><a href="#">Courses</a></li>
+            <li class="hover:bg-quaternary px-2"><a href="#">Pricing</a></li>
+            <li class="hover:bg-quaternary px-2"><a href="#">About</a></li>
+        </ul>
+        <hr>
+        <div class="px-2 py-5">
+            <button
+                class="border-solid w-full border-2 border-quaternary px-4 py-1 rounded-md hover:text-secondary hover:bg-tertiary">
+                Account
+            </button>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="px-3 flex items-center min-h-screen text-2xl md:text-3xl">
+        <div class="flex flex-col [&>*]:my-6 [&>*]:md:my-8 md:items-centers md:text-center">
+            <div>
+                <button
+                    class="bg-quaternary rounded-md py-1 px-5 hover:-translate-y-2 transition duration-300 hover:shadow-lg group">
+                    Join now hehe
+                    <i class="fa-solid fa-arrow-right fa-lg group-hover:translate-x-2 transition duration-300"></i>
+                </button>
+            </div>
+            <div class="text-5xl md:text-5xl font-bold">
+                Web app to desktop app in minutes
+            </div>
+            <p class="md:px-32">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos tenetur aspernatur
+                nostrum djkakjs lor
+            </p>
+            <div class="flex-col md:flex-row [&>*]:my-3">
+                <button
+                    class="bg-secondary hover:text-secondary hover:bg-quaternary rounded-md md:w-fit w-full text-quaternary p-2">
+                    Download now
+                </button>
+                <button
+                    class="border-2 hover:text-quaternary hover:bg-secondary border-quaternary border-solid rounded-md md:w-fit w-full text-secondary p-2">
+                    Read Docs
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- understanding intersection observer -->
+    <!-- <div class="[&>div]:my-16">
+        <div class="w-full card text-center min-h-40 bg-red-100 -translate-x-1/2 duration-1000 transition">card1</div>
+        <div class="w-full card text-center min-h-40 bg-blue-100 -translate-x-1/2 duration-1000 transition">card2</div>
+        <div class="w-full card text-center min-h-40 bg-green-100 -translate-x-1/2 duration-1000 transition">card3</div>
+        <div class="w-full card text-center min-h-40 bg-yellow-100 -translate-x-1/2 duration-1000 transition">card4</div>
+        <div class="w-full card text-center min-h-40 bg-orange-100 -translate-x-1/2 duration-1000 transition">card5</div>
+    </div> -->
+
+    <!-- sliding companies section -->
+    <div
+        class="text-center text-xs font-bold flex flex-col gap-5 overflow-hidden items-center transition-transform ease-linear duration-300">
+        <div class="line flex gap-5 [&>*]:min-w-24 [&>*]:md:min-w-28 w-fit">
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0IfOkcWr8-EaVzxrC5Pv7E4moEf10NrvhVw&s"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%207.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%206.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%205.png"
+                    alt="">
+                <span class="text-center">lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%208.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%209.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2010.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2011.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2013.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%205.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%204.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2012.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%204.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+        </div>
+
+        <div class="line flex gap-5 [&>*]:min-w-24 [&>*]:md:min-w-28 w-screen justify-center">
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2026.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="	https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2015.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2016.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2017.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2018.png"
+                    alt="">
+                <span class="text-center">lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2019.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2020.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2022.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2021.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2023.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2024.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2025.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2026.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+        </div>
+
+        <div class="line flex gap-5 md:hidden [&>*]:min-w-24 w-screen justify-center">
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2025.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="md:max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2026.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="	https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2015.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class=" flex flex-col items-center gap-2 border-2 rounded-md border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2016.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0IfOkcWr8-EaVzxrC5Pv7E4moEf10NrvhVw&s"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%207.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2012.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 border-2 rounded-lg border-quaternary border-solid p-2">
+                <img class="max-h-24"
+                    src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%204.png"
+                    alt="">
+                <span>lorem ipsum</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- cards -->
+    <h3 class="mb-16 mt-40 text-4xl md:text-5xl mx-5 sm:mx-14 lg:mx-20  font-extrabold">How it works</h3>
+    <div
+        class="border-solid border-2 border-quaternary shadow-md duration-300 transition hover:shadow-lg hover:-translate-y-2 rounded-lg flex flex-col p-3 mx-5 sm:mx-14 lg:mx-20 lg:p-6 md:flex-row gap-5 justify-center items-center">
+        <div class="flex flex-col gap-5 py-10 mx-5 md:w-1/2">
+            <h3
+                class="w-fit text-tertiary p-2 text-lg border-solid bg-secondary rounded-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+                Step-1
+            </h3>
+            <h2 class="text-2xl lg:text-3xl font-bold">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </h2>
+            <p class="text-base lg:text-lg">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, consequuntur, magni perspiciatis,
+                consequatur atque nulla aut rerum voluptas officiis necessitatibus corrupti exercitationem eius saepe id
+                praesentium eligendi omnis! Similique, iste.
+            </p>
+            <div class="grid grid-cols-2 gap-5 text-lg lg:text-xl">
+                <ul class="flex-1">
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                </ul>
+                <ul class="flex-1">
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                </ul>
+            </div>
+        </div>
+        <div class="p-3 md:p-0 md:w-1/2">
+            <img class="rounded-md"
+                src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2066.svg" alt="">
+        </div>
+    </div>
+
+    <div
+        class="border-solid border-2 border-quaternary shadow-md duration-300 transition hover:shadow-lg hover:-translate-y-2 rounded-lg flex flex-col mx-5 sm:mx-14 lg:mx-20 p-3  lg:p-6 my-40 md:flex-row gap-5 justify-center items-center">
+        <div class="flex flex-col gap-5 py-10 mx-5 md:w-1/2">
+            <h3
+                class="w-fit p-2 text-tertiary text-lg border-solid bg-secondary rounded-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+                Step-2
+            </h3>
+            <h2 class="text-2xl lg:text-3xl font-bold">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </h2>
+            <p class="text-base lg:text-lg">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, consequuntur, magni perspiciatis,
+                consequatur atque nulla aut rerum voluptas officiis necessitatibus corrupti exercitationem eius saepe id
+                praesentium eligendi omnis! Similique, iste.
+            </p>
+            <div class="grid grid-cols-2 gap-5 text-lg lg:text-xl">
+                <ul class="flex-1">
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                </ul>
+                <ul class="flex-1">
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                </ul>
+            </div>
+        </div>
+        <div class="p-3 md:p-0 md:w-1/2">
+            <img class="rounded-md"
+                src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2066.svg" alt="">
+        </div>
+    </div>
+
+    <div
+        class="border-solid border-2 border-quaternary shadow-md duration-300 transition hover:shadow-lg hover:-translate-y-2 rounded-lg flex flex-col p-3 mx-5 sm:mx-14 lg:mx-20  lg:p-6 mb-40 md:flex-row gap-5 justify-center items-center">
+        <div class="flex flex-col gap-5 py-10 mx-5 md:w-1/2">
+            <h3
+                class="w-fit p-2 text-lg text-tertiary border-solid bg-secondary rounded-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+                Step-3
+            </h3>
+            <h2 class="text-2xl lg:text-3xl font-bold">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </h2>
+            <p class="text-base lg:text-lg">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, consequuntur, magni perspiciatis,
+                consequatur atque nulla aut rerum voluptas officiis necessitatibus corrupti exercitationem eius saepe id
+                praesentium eligendi omnis! Similique, iste.
+            </p>
+            <div class="grid grid-cols-2 gap-5 text-lg lg:text-xl">
+                <ul class="flex-1">
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                </ul>
+                <ul class="flex-1">
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                    <li>✅ lorem haha</li>
+                </ul>
+            </div>
+        </div>
+        <div class="p-3 md:p-0 md:w-1/2">
+            <img class="rounded-md"
+                src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2066.svg" alt="">
+        </div>
+    </div>
+
+    <!-- bento grid -->
+    <h3 class="mb-16 text-4xl md:text-5xl mx-5 sm:mx-14 lg:mx-20  font-extrabold">
+        ToDesktop handles the details
+    </h3>
+    <div
+        class="flex flex-col lg:grid grid-cols-3 grid-rows-7 gap-8 mx-5 sm:mx-14 lg:mx-20  text-center [&>*]:py-10 [&>*]:px-3">
+        <div
+            class="flex flex-col gap-5 justify-center items-center row-span-3 rounded-3xl border-2 border-solid border-secondary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+            <h2 class="text-2xl font-extrabold">
+                Lorem ipsum dolor sit
+            </h2>
+            <div>
+                <img src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2037.png" alt="">
+            </div>
+        </div>
+
+        <div
+            class="flex flex-col gap-5 justify-center items-center row-span-4 rounded-3xl border-2 border-solid border-secondary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+            <h2 class="text-2xl font-extrabold">
+                Lorem ipsum dolor sit
+            </h2>
+            <div>
+                We'll ensure the underlying browser is up to date and deliver performance improvements, security
+                patches, & additional features.
+            </div>
+            <div>
+                <img src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2038.png" alt="">
+            </div>
+        </div>
+
+        <div
+            class="flex flex-col gap-5 justify-center items-center row-span-3 rounded-3xl border-2 border-solid border-secondary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+            <h2 class="text-2xl font-extrabold">
+                Lorem ipsum dolor sit
+            </h2>
+            <div>
+                <img src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2039.png" alt="">
+            </div>
+        </div>
+
+        <div
+            class="flex flex-col gap-5 justify-center items-center row-span-4 rounded-3xl border-2 border-solid border-secondary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+            <h2 class="text-2xl font-extrabold">
+                Lorem ipsum dolor sit
+            </h2>
+            <div>
+                We'll ensure the underlying browser is up to date and deliver performance improvements, security
+                patches, & additional features.
+            </div>
+            <div>
+                <img src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2040.png" alt="">
+            </div>
+        </div>
+
+        <div
+            class="flex flex-col gap-5 justify-center items-center row-span-4 rounded-3xl border-2 border-solid border-secondary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+            <h2 class="text-2xl font-extrabold">
+                Lorem ipsum dolor sit
+            </h2>
+            <div>
+                We'll ensure the underlying browser is up to date and deliver performance improvements, security
+                patches, & additional features.
+            </div>
+            <div>
+                <img src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2038.png" alt="">
+            </div>
+        </div>
+
+        <div
+            class="flex flex-col gap-5 justify-center items-center row-span-3 rounded-3xl border-2 border-solid border-secondary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+            <h2 class="text-2xl font-extrabold">
+                Lorem ipsum dolor sit
+            </h2>
+            <div>
+                <img src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2037.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- moving info -->
+    <div class="flex justify-center mt-40 text-2xl mx-5 sm:mx-14 lg:mx-20 py-10 border-2 border-solid overflow-hidden">
+        <div class="flex gap-8 items-center moving-lane">
+            <span class="whitespace-nowrap"> Custom Menus </span>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+            <span class="whitespace-nowrap"> Multi-window support </span>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+            <span class="whitespace-nowrap"> Trays </span>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+            <span class="whitespace-nowrap"> Deep Linking </span>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+            <span class="whitespace-nowrap"> Download Analytics </span>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+            <span class="whitespace-nowrap"> Launch at startup </span>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+            <span class="whitespace-nowrap"> Custom Menus </span>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+        </div>
+    </div>
+
+    <!-- customers reviews -->
+    <h3 class="mb-16 mt-40 text-4xl  md:text-5xl mx-5 sm:mx-14 lg:mx-20  font-extrabold">Customer Stories</h3>
+    <div class="mx-5 sm:mx-14 lg:mx-20 py-10 flex flex-col gap-10">
+        <div class="border-2 border-solid border-quaternary pt-8 ps-8 pe-0 pb-0 rounded-xl">
+            <h3 class="text-2xl font-extrabold">Click Up</h3>
+            <div class="flex flex-col lg:grid grid-cols-2 gap-12 items-end">
+                <div class="flex flex-col text-xl gap-10 md:gap-14 self-start mt-10 pe-4">
+                    <p class="font-semibold">ClickUp used ToDesktop to get their desktop app in front of customers in
+                        days instead of months.</p>
+                    <div class="flex flex-wrap">
+                        <span class="border-2 border-quaternary p-1 rounded-md bg-tertiary m-1">✔️ Chromeless UI</span>
+                        <span class="border-2 border-quaternary p-1 rounded-md bg-tertiary m-1">✔️ Native
+                            spellcheck</span>
+                        <span class="border-2 border-quaternary p-1 rounded-md bg-tertiary m-1">✔️ Task time in
+                            menubar</span>
+                        <span class="border-2 border-quaternary p-1 rounded-md bg-tertiary m-1">✔️ Notification count in
+                            the dock</span>
+                        <span class="border-2 border-quaternary p-1 rounded-md bg-tertiary m-1">✔️ Global hotkey to
+                            create task</span>
+                    </div>
+                    <p class="text-gray-500">
+                        “ToDesktop provided us with a polished desktop app in no time. Their expert team guided us
+                        through a smooth migration from our outdated legacy desktop app, enabling us to deliver new and
+                        improved features to our customers within days.”
+                    </p>
+                    <div class="flex gap-5">
+                        <img class="rounded-full"
+                            src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2045.jpeg"
+                            alt="">
+                        <div>
+                            <h4 class="font-bold">Zeb Evans</h4>
+                            <p class="text-gray-500 text-base">Founder & CEO, ClickUp</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2046.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row justify-between gap-5 [&>div]:p-5">
+            <div
+                class="flex flex-col gap-8 justify-center row-span-3 rounded-lg border-2 border-solid border-quaternary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+                <h2 class="text-2xl font-extrabold">
+                    <i class="fa-solid fa-code bg-blue-200 p-3 rounded-full" style="color: #7c72fd;"></i>  Native APIs
+                </h2>
+                <div class="text-lg">
+                    What sets ToDesktop apart is its seamless integration with native APIs using our existing web codebase. By tapping into APIs like Tray and Notifications, we've crafted an exceptionally polished desktop user experience.
+                </div>
+                <div class="flex">
+                    <img class="rounded-full"
+                        src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2045.jpeg"
+                        alt="">
+                        <img class="rounded-full -translate-x-4"
+                        src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2048.jpeg"
+                        alt="">
+                    <div>
+                        <h4 class="font-bold">Zeb Evans</h4>
+                        <p class="text-gray-500 text-base">Founder & CEO, ClickUp</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="flex flex-col gap-8 justify-center row-span-3 rounded-lg border-2 border-solid border-quaternary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+                <h2 class="text-2xl font-extrabold">
+                    <i class="fa-solid fa-code bg-blue-200 p-3 rounded-full" style="color: #7c72fd;"></i>  Native APIs
+                </h2>
+                <div class="text-lg">
+                    What sets ToDesktop apart is its seamless integration with native APIs using our existing web codebase. By tapping into APIs like Tray and Notifications, we've crafted an exceptionally polished desktop user experience.
+                </div>
+                <div class="flex">
+                    <img class="rounded-full"
+                        src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2045.jpeg"
+                        alt="">
+                        <img class="rounded-full -translate-x-4"
+                        src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2048.jpeg"
+                        alt="">
+                    <div>
+                        <h4 class="font-bold">Zeb Evans</h4>
+                        <p class="text-gray-500 text-base">Founder & CEO, ClickUp</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="flex flex-col gap-8 justify-center row-span-3 rounded-lg border-2 border-solid border-quaternary hover:bg-gradient-to-br from-red-50 via-purple-50 to-yellow-50">
+                <h2 class="text-2xl font-extrabold">
+                    <i class="fa-solid fa-code bg-blue-200 p-3 rounded-full" style="color: #7c72fd;"></i> Native APIs
+                </h2>
+                <div class="text-lg">
+                    What sets ToDesktop apart is its seamless integration with native APIs using our existing web codebase. By tapping into APIs like Tray and Notifications, we've crafted an exceptionally polished desktop user experience.
+                </div>
+                <div class="flex">
+                    <img class="rounded-full"
+                        src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2045.jpeg"
+                        alt="">
+                        <img class="rounded-full -translate-x-4"
+                        src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2048.jpeg"
+                        alt="">
+                    <div>
+                        <h4 class="font-bold">Zeb Evans</h4>
+                        <p class="text-gray-500 text-base">Founder & CEO, ClickUp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border border-quaternary pt-8 ps-8 pe-0 pb-0 rounded-xl bg-black">
+            <div class="flex flex-col lg:grid grid-cols-2 gap-12 items-end">
+                <div class="flex flex-col text-xl gap-8 md:gap-14 self-start mt-10 pe-4">
+                    <p class="font-semibold text-gray-500">READY TO START BUILDING?</p>
+                    <div class="flex flex-wrap text-5xl font-bold text-white">
+                        Create your desktop app for free*
+                    </div>
+                    <p class="text-gray-500">
+                        ToDesktop Builder will take you step-by-step through the process of creating your first desktop app in just a few minutes.
+                    </p>
+                    <button class="text-white bg-blue-700 text-center rounded-lg py-3"><i class="fa-solid fa-download"></i> Download Desktop Builder</button>
+                    <p class="text-white text-xs">
+                        *You can create a desktop app and run it on your computer for free. You will only be charged if you want to create a distributable app for your customers.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://anuj-kumar-sharma.github.io/tailwind-landing-page/assets/asset%2046.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- subscription cards -->
+    <h3 class="mb-16 mt-40 text-4xl  md:text-5xl mx-5 sm:mx-14 lg:mx-20  font-extrabold">Choose a plan that fits your needs</h3>
+    <div class="mx-5 sm:mx-14 lg:mx-20 flex flex-col lg:flex-row gap-8 justify-between">
+        <div class="flex flex-col gap-6 lg:w-1/3 bg-gray-50 rounded-lg py-8 px-3">
+            <h3 class="text-4xl font-extrabold">Free</h3>
+            <p class="text-lg">For personal use or testing your app before deploying to customers.</p>
+            <p class="text-lg font-extrabold">KEY FEATURES</p>
+            <div class="text-xl">✔️ Free for personal use</div>
+            <div class="text-xl">✔️ Free for personal use</div>
+            <div class="text-xl">⛌ Free for personal use</div>
+            <div class="text-xl">⛌ Free for personal use</div>
+            <button class="text-center border-2 py-3 hover:border-secondary border-quaternary font-bold text-secondary">
+                Read Docs
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 lg:w-1/3 bg-gray-50 rounded-lg py-8 px-3">
+            <h3 class="text-4xl font-extrabold">Essential</h3>
+            <p class="text-lg">For simple desktop apps.</p>
+            <h3 class="text-2xl"><span class="font-bold">$99</span>/month</h3>
+            <p class="text-lg font-extrabold">KEY FEATURES</p>
+            <div class="text-xl">✔️ Free for personal use</div>
+            <div class="text-xl">✔️ Free for personal use</div>
+            <div class="text-xl">⛌ Free for personal use</div>
+            <div class="text-xl">⛌ Free for personal use</div>
+            <button class="text-center border-2 py-3 hover:border-secondary border-quaternary font-bold text-secondary">
+                Read Docs
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 lg:w-1/3 bg-gray-50 rounded-lg py-8 px-3">
+            <h3 class="text-4xl font-extrabold">Professional</h3>
+            <p class="text-lg">For sophisticated desktop apps.</p>
+            <h3 class="text-2xl"><span class="font-bold">$99</span>/month</h3>
+            <p class="text-lg font-extrabold">KEY FEATURES</p>
+            <div class="text-xl">✔️ Free for personal use</div>
+            <div class="text-xl">✔️ Free for personal use</div>
+            <div class="text-xl">⛌ Free for personal use</div>
+            <div class="text-xl">⛌ Free for personal use</div>
+            <button class="text-center border-2 py-3 hover:border-secondary bg-quaternary text-secondary">
+                Read Docs
+            </button>
+        </div>
+    </div>
+
+    <!-- FAQs -->
+    <h3 class="mb-16 mt-40 text-4xl  md:text-5xl mx-5 sm:mx-14 lg:mx-20 font-extrabold">FAQs</h3>
+    <div class="mx-5 sm:mx-14 lg:mx-20 flex flex-col lg:grid grid-cols-2 gap-8">
+        <div class="p-5 flex h-fit flex-col bg-gray-100 rounded-lg border-2 border-secondary">
+            <div class="flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Is ToDesktop For Me?</h3>
+                <i class="fa-solid fa-chevron-up fa-lg cursor-pointer one" onclick="display('one')"></i>
+            </div>
+            <div id="one" class="mt-6 text-xl hidden">
+                <p>
+                    That depends! If you would like to distribute your web app to your users as a downloadable desktop app then ToDesktop is for you.
+                </p>
+            </div>
+        </div>
+        <div class="p-5 h-fit flex flex-col bg-gray-100 rounded-lg border-2 border-secondary">
+            <div class="flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Is ToDesktop For Me?</h3>
+                <i class="fa-solid fa-chevron-up fa-lg cursor-pointer two" onclick="display('two')"></i>
+            </div>
+            <div id="two" class="mt-6 text-xl hidden">
+                <p>
+                    That depends! If you would like to distribute your web app to your users as a downloadable desktop app then ToDesktop is for you.
+                </p>
+            </div>
+        </div>
+        <div class="p-5 h-fit flex flex-col bg-gray-100 rounded-lg border-2 border-secondary">
+            <div class="flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Is ToDesktop For Me?</h3>
+                <i class="fa-solid fa-chevron-up fa-lg cursor-pointer three" onclick="display('three')"></i>
+            </div>
+            <div id="three" class="mt-6 text-xl hidden">
+                <p>
+                    That depends! If you would like to distribute your web app to your users as a downloadable desktop app then ToDesktop is for you.
+                </p>
+            </div>
+        </div>
+        <div class="p-5 h-fit flex flex-col bg-gray-100 rounded-lg border-2 border-secondary">
+            <div class="flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Is ToDesktop For Me?</h3>
+                <i class="fa-solid fa-chevron-up fa-lg cursor-pointer four" onclick="display('four')"></i>
+            </div>
+            <div id="four" class="mt-6 text-xl hidden">
+                <p>
+                    That depends! If you would like to distribute your web app to your users as a downloadable desktop app then ToDesktop is for you.
+                </p>
+            </div>
+        </div>
+        <div class="p-5 h-fit flex flex-col bg-gray-100 rounded-lg border-2 border-secondary">
+            <div class="flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Is ToDesktop For Me?</h3>
+                <i class="fa-solid fa-chevron-up fa-lg cursor-pointer five" onclick="display('five')"></i>
+            </div>
+            <div id="five" class="mt-6 text-xl hidden">
+                <p>
+                    That depends! If you would like to distribute your web app to your users as a downloadable desktop app then ToDesktop is for you.
+                </p>
+            </div>
+        </div>
+        <div class="p-5 h-fit flex flex-col bg-gray-100 rounded-lg border-2 border-secondary">
+            <div class="flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Is ToDesktop For Me?</h3>
+                <i class="fa-solid fa-chevron-up fa-lg cursor-pointer six" onclick="display('six')"></i>
+            </div>
+            <div id="six" class="mt-6 text-xl hidden">
+                <p>
+                    That depends! If you would like to distribute your web app to your users as a downloadable desktop app then ToDesktop is for you.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-16 mt-40 mx-5 sm:mx-14 lg:mx-20 p-14 bg-gray-50 border-2 border-quaternary rounded-lg flex justify-between items-center flex-col-reverse gap-10 lg:flex-row">
+        <div>
+            <a href="#main" class="flex gap-2 text-xl items-center">
+                <img class="max-w-14 max-h-14" src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?w=996&t=st=1717706345~exp=1717706945~hmac=b648ce113e18749a6791beadc908365afb389d129a76b920c0c47474a1289cc5" alt="logo">
+                <span>AcademiaX</span>
+            </a>
+        </div>
+        <div class="flex gap-5 text-xl items-center flex-col-reverse lg:flex-row">
+            <div class="flex gap-5">
+                <i class="fa-brands fa-twitter fa-lg"></i>
+                <i class="fa-brands fa-github fa-lg"></i>
+            </div>
+            <p>Documentation</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

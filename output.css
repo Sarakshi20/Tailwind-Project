@@ -598,6 +598,11 @@ body{
   margin-bottom: 10rem;
 }
 
+.my-auto{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .mb-16{
   margin-bottom: 4rem;
 }
@@ -966,6 +971,11 @@ body{
   padding-bottom: 2rem;
 }
 
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 .pb-0{
   padding-bottom: 0px;
 }
@@ -986,6 +996,10 @@ body{
   padding-top: 2rem;
 }
 
+.pt-16{
+  padding-top: 4rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -993,6 +1007,11 @@ body{
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-4xl{
@@ -1023,11 +1042,6 @@ body{
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .font-bold{
@@ -1193,6 +1207,18 @@ body{
     flex-direction: row;
   }
 
+  .md\:justify-start{
+    justify-content: flex-start;
+  }
+
+  .md\:justify-end{
+    justify-content: flex-end;
+  }
+
+  .md\:justify-center{
+    justify-content: center;
+  }
+
   .md\:gap-14{
     gap: 3.5rem;
   }
@@ -1204,6 +1230,11 @@ body{
   .md\:px-32{
     padding-left: 8rem;
     padding-right: 8rem;
+  }
+
+  .md\:py-0{
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .md\:text-center{
@@ -1259,18 +1290,19 @@ body{
   }
 }
 
+.\[\&\>\*\]\:my-10>*{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
 .\[\&\>\*\]\:my-3>*{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
 
-.\[\&\>\*\]\:my-6>*{
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.\[\&\>\*\]\:mt-10>*{
-  margin-top: 2.5rem;
+.\[\&\>\*\]\:my-5>*{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .\[\&\>\*\]\:min-w-24>*{
